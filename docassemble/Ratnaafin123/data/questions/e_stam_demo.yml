@@ -1,0 +1,24 @@
+mandatory: True
+code: |
+  e_stamp
+  wait_screen
+  final_screen
+---
+question: Upload a PDF
+fields:
+  - File: e_stamp
+    datatype: file
+    accept: |
+      "application/pdf"
+---
+question: |
+  Thanks for uploading that document.
+subquestion: |
+  I am now converting the page images. 
+  Give me a minute to do so!
+continue button field: wait_screen
+---
+event: final_screen
+question: Document
+attachment:
+  docx template file: estamp.docx

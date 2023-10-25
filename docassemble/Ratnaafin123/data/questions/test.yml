@@ -1,0 +1,26 @@
+---
+question: |
+  What is your name?
+fields:
+  - First Name: child
+---
+code: |
+  title= "ABC"
+  title1= "XYZ"
+  children = ['a', 'b', 'c']
+  for i in children:
+    child = i
+  children1 = ['x', 'y', 'z']
+  for i in children1:
+    child1 = i
+---
+mandatory: True
+question: |
+  Here is your document.
+attachment:
+  name: Your letter
+  filename: letter
+  docx template file: test_auto_numbering.docx
+  valid formats:
+    - pdf
+    - docx

@@ -1,0 +1,37 @@
+objects:
+  - user: |
+      DAList.using(
+      object_type=Individual,
+      ask_number=True)
+---
+initial: True
+code: |
+  name
+  user
+---
+question: |
+  Hello
+fields:
+  - name: name
+---
+question: |
+  How many users are there?
+fields:
+  - Number: user.target_number
+    datatype: integer
+    min: 2
+---
+field: friend
+question: |
+  who is your
+  ${ ordinal(i) } friend?
+
+fields:
+  - ${ordinal(i) | title_case} friend: user[i].name.first
+---
+mandatory: True
+question: |
+  There are ${ user.number() }
+  friends in all.
+subquestion: |
+  The friends are ${ user }.
